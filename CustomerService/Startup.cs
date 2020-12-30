@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using CustomerService.Entityframeworkcore;
 
 namespace CustomerService
 {
@@ -35,6 +37,8 @@ namespace CustomerService
             });
             // Per Call
             services.AddTransient<ICustomerRepository, CustomerRepository>(); // Allocates the memory of CustomerRepository
+            services.AddDbContext<CustomerDbContext>(temp => temp.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            
 
         }
 
