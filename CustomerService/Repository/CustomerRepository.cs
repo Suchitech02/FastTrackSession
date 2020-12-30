@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using CustomerService.Models;
 using CustomerService.Entityframeworkcore;
+using System.Linq;
 
 namespace CustomerService.Repository
 {
@@ -13,7 +14,8 @@ namespace CustomerService.Repository
         }
         public int CreateCustomer(Customer customer)
         {
-            throw new System.NotImplementedException();
+            this.customerDb.Add(customer);
+            return this.customerDb.SaveChanges();
         }
 
         public int DeleteCustomer(int ID)
@@ -23,7 +25,7 @@ namespace CustomerService.Repository
 
         public IEnumerable<Customer> GetCustomers()
         {
-            throw new System.NotImplementedException();
+            return this.customerDb.Customers.ToList();  // Customers from customerDbContext
         }
 
         public Customer SearchCustomer(int ID)

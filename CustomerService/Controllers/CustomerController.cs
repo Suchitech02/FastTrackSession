@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using CustomerService.Repository;
+using CustomerService.Models;
 
 namespace CustomerService.Controllers
 {
@@ -17,6 +18,12 @@ namespace CustomerService.Controllers
         public ActionResult GetCustomerList()
         {
             return Ok(customerRepository.GetCustomers());
+        }
+
+        [HttpPost("CreateCustomer")]
+        public ActionResult CreateCustomer(Customer obj)
+        {
+            return Ok(customerRepository.CreateCustomer(obj));
         }
     }
 }
