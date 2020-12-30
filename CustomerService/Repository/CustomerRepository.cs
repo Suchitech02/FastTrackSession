@@ -1,14 +1,15 @@
 using System.Collections.Generic;
 using CustomerService.Models;
+using CustomerService.Entityframeworkcore;
 
 namespace CustomerService.Repository
 {
     public class CustomerRepository : ICustomerRepository
     {
-        
-        public CustomerRepository()
+        CustomerDbContext customerDb;
+        public CustomerRepository(CustomerDbContext customerDb)
         {
-            
+            this.customerDb = customerDb;
         }
         public int CreateCustomer(Customer customer)
         {
