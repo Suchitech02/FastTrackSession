@@ -36,7 +36,7 @@ namespace CustomerService.Repository
 
         public Customer SearchCustomer(int ID)
         {
-            throw new System.NotImplementedException();
+            return customerDb.Customers.SingleOrDefault(temp => temp.ID == ID);
         }
 
         public int UpdateCustomer(Customer customer)
