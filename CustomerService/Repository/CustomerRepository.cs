@@ -21,7 +21,12 @@ namespace CustomerService.Repository
 
         public int DeleteCustomer(Customer customer)
         {
-            throw new System.NotImplementedException();
+            if(customer == null)
+            {
+                throw new ArgumentNullException("Entity Missing");
+            }
+            customerDb.Customers.Remove(customer); // Removing from local memory
+            return customerDb.SaveChanges(); 
         }
 
         public IEnumerable<Customer> GetCustomers()
