@@ -25,5 +25,21 @@ namespace CustomerService.Controllers
         {
             return Ok(customerRepository.CreateCustomer(obj));
         }
+
+        [HttpPut("UpdateCustomer")]
+        public ActionResult UpdateCustomer(Customer obj)
+        {
+            return Ok(customerRepository.UpdateCustomer(obj));
+        }
+        [HttpDelete("DeleteCustomer")]
+        public ActionResult DeleteCustomer(Customer obj)
+        {
+            return Ok(customerRepository.DeleteCustomer(obj));
+        }
+        [HttpGet("SearchCustomer")]
+        public ActionResult SearchCustomer(int ID)
+        {
+            return Ok(customerRepository.SearchCustomer(ID));
+        }
     }
 }
