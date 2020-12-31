@@ -45,6 +45,7 @@ namespace CustomerService.Repository
             {
                 throw new ArgumentNullException("Entity Missing");
             }
+            customerDb.Customers.Update(customer); // Removing from local memory
             return customerDb.SaveChanges();
 
         }
