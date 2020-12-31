@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using CustomerService.Models;
 using CustomerService.Entityframeworkcore;
 using System.Linq;
+using System;
 
 namespace CustomerService.Repository
 {
@@ -18,7 +19,7 @@ namespace CustomerService.Repository
             return this.customerDb.SaveChanges();
         }
 
-        public int DeleteCustomer(int ID)
+        public int DeleteCustomer(Customer customer)
         {
             throw new System.NotImplementedException();
         }
@@ -35,7 +36,12 @@ namespace CustomerService.Repository
 
         public int UpdateCustomer(Customer customer)
         {
-            throw new System.NotImplementedException();
+            if(customer == null)
+            {
+                throw new ArgumentNullException("Entity Missing");
+            }
+            return customerDb.SaveChanges();
+
         }
     }
 }

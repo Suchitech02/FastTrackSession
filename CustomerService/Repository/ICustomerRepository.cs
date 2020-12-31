@@ -9,7 +9,7 @@ namespace CustomerService.Repository
          IEnumerable<Customer> GetCustomers();
          Customer SearchCustomer(int ID);
          int UpdateCustomer(Customer customer);
-         int DeleteCustomer(int ID);
+         int DeleteCustomer(Customer customer);
          int CreateCustomer(Customer customer);
     }
 }
